@@ -1,0 +1,57 @@
+{
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"cub_add_example",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"examples/CMakeLists.txt",
+			"examples/device/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 42,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 44,
+				"parent" : 1
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "cub.cpp14.example.device.sort_find_non_trivial_runs::@00ca099a5f0e4a99242c"
+		}
+	],
+	"id" : "cub.all.example.device.sort_find_non_trivial_runs::@00ca099a5f0e4a99242c",
+	"name" : "cub.all.example.device.sort_find_non_trivial_runs",
+	"paths" : 
+	{
+		"build" : "examples/device",
+		"source" : "examples/device"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

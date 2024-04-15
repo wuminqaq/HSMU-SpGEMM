@@ -1,0 +1,24 @@
+Performing C++ SOURCE FILE Test CXX_FLAG__Wunused_local_typedef failed with the following output:
+Change Dir: /home/wm/open_source_code/OpSparse-main/spECK/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_182cc && [1/2] Building CXX object CMakeFiles/cmTC_182cc.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_182cc.dir/src.cxx.o 
+/usr/bin/g++   -DCXX_FLAG__Wunused_local_typedef   -Wunused-local-typedef -o CMakeFiles/cmTC_182cc.dir/src.cxx.o -c src.cxx
+g++: error: unrecognized command line option '-Wunused-local-typedef'; did you mean '-Wunused-local-typedefs'?
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test CXX_FLAG__Wgnu failed with the following output:
+Change Dir: /home/wm/open_source_code/OpSparse-main/spECK/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_e14c9 && [1/2] Building CXX object CMakeFiles/cmTC_e14c9.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_e14c9.dir/src.cxx.o 
+/usr/bin/g++   -DCXX_FLAG__Wgnu   -Wgnu -o CMakeFiles/cmTC_e14c9.dir/src.cxx.o -c src.cxx
+g++: error: unrecognized command line option '-Wgnu'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }

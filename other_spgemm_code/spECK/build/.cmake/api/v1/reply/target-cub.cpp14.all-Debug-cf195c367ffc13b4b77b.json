@@ -1,0 +1,97 @@
+{
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"cub_build_target_list",
+			"add_dependencies",
+			"include"
+		],
+		"files" : 
+		[
+			"cmake/CubBuildTargetList.cmake",
+			"CMakeLists.txt",
+			"cmake/CubHeaderTesting.cmake",
+			"test/CMakeLists.txt",
+			"examples/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 102,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 285,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 105,
+				"parent" : 0
+			},
+			{
+				"file" : 2,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 37,
+				"parent" : 4
+			},
+			{
+				"file" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 3,
+				"line" : 72,
+				"parent" : 6
+			},
+			{
+				"file" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 4,
+				"line" : 6,
+				"parent" : 8
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "cub.cpp14.headers::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "cub.cpp14.tests::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 9,
+			"id" : "cub.cpp14.examples::@714eac15f71a94114fdf"
+		}
+	],
+	"id" : "cub.cpp14.all::@6890427a1f51a3e7e1df",
+	"name" : "cub.cpp14.all",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

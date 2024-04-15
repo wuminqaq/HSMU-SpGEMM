@@ -1,0 +1,69 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"test/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 158,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "cub.cpp14.test.device_scan.types_0::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "cub.cpp14.test.device_scan.types_1::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "cub.cpp14.test.device_scan.types_2::@36f028580bb02cc8272a"
+		}
+	],
+	"id" : "cub.cpp14.test.device_scan.all::@36f028580bb02cc8272a",
+	"name" : "cub.cpp14.test.device_scan.all",
+	"paths" : 
+	{
+		"build" : "test",
+		"source" : "test"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

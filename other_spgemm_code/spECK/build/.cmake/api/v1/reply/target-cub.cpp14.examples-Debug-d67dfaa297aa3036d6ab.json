@@ -1,0 +1,256 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"add_dependencies",
+			"cub_add_example"
+		],
+		"files" : 
+		[
+			"examples/CMakeLists.txt",
+			"examples/block/CMakeLists.txt",
+			"examples/device/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 5,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 14,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 14,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 5
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 14,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 7
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 14,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 9
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 14,
+				"parent" : 11
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 12
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 14,
+				"parent" : 11
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 14
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 14,
+				"parent" : 11
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 16
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 14,
+				"parent" : 11
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 18
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 14,
+				"parent" : 11
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 20
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 14,
+				"parent" : 11
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 22
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 14,
+				"parent" : 11
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 24
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 14,
+				"parent" : 11
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 26
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 14,
+				"parent" : 11
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 28
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "cub.cpp14.example.block.radix_sort::@63aa85ca0d22c6d66eeb"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "cub.cpp14.example.block.reduce::@63aa85ca0d22c6d66eeb"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "cub.cpp14.example.block.reduce_dyn_smem::@63aa85ca0d22c6d66eeb"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "cub.cpp14.example.block.scan::@63aa85ca0d22c6d66eeb"
+		},
+		{
+			"backtrace" : 13,
+			"id" : "cub.cpp14.example.device.partition_flagged::@00ca099a5f0e4a99242c"
+		},
+		{
+			"backtrace" : 15,
+			"id" : "cub.cpp14.example.device.partition_if::@00ca099a5f0e4a99242c"
+		},
+		{
+			"backtrace" : 17,
+			"id" : "cub.cpp14.example.device.radix_sort::@00ca099a5f0e4a99242c"
+		},
+		{
+			"backtrace" : 19,
+			"id" : "cub.cpp14.example.device.reduce::@00ca099a5f0e4a99242c"
+		},
+		{
+			"backtrace" : 21,
+			"id" : "cub.cpp14.example.device.scan::@00ca099a5f0e4a99242c"
+		},
+		{
+			"backtrace" : 23,
+			"id" : "cub.cpp14.example.device.select_flagged::@00ca099a5f0e4a99242c"
+		},
+		{
+			"backtrace" : 25,
+			"id" : "cub.cpp14.example.device.select_if::@00ca099a5f0e4a99242c"
+		},
+		{
+			"backtrace" : 27,
+			"id" : "cub.cpp14.example.device.select_unique::@00ca099a5f0e4a99242c"
+		},
+		{
+			"backtrace" : 29,
+			"id" : "cub.cpp14.example.device.sort_find_non_trivial_runs::@00ca099a5f0e4a99242c"
+		}
+	],
+	"id" : "cub.cpp14.examples::@714eac15f71a94114fdf",
+	"name" : "cub.cpp14.examples",
+	"paths" : 
+	{
+		"build" : "examples",
+		"source" : "examples"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

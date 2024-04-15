@@ -1,0 +1,199 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"test/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 158,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_1.pairs_0::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_1.pairs_1::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_1.pairs_2::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_1.pairs_3::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_2.pairs_0::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_2.pairs_1::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_2.pairs_2::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 9,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_2.pairs_3::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_4.pairs_0::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 11,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_4.pairs_1::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_4.pairs_2::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 13,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_4.pairs_3::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 14,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_8.pairs_0::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 15,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_8.pairs_1::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 16,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_8.pairs_2::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 17,
+			"id" : "cub.cpp14.test.device_radix_sort.bytes_8.pairs_3::@36f028580bb02cc8272a"
+		}
+	],
+	"id" : "cub.cpp14.test.device_radix_sort.all::@36f028580bb02cc8272a",
+	"name" : "cub.cpp14.test.device_radix_sort.all",
+	"paths" : 
+	{
+		"build" : "test",
+		"source" : "test"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

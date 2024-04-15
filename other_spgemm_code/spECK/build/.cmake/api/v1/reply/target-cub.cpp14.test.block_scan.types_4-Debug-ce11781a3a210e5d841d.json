@@ -1,0 +1,243 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "bin/cub.cpp14.test.block_scan.types_4"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"cub_add_test",
+			"target_link_libraries",
+			"target_compile_definitions",
+			"target_include_directories",
+			"set_target_properties",
+			"cub_set_target_properties",
+			"cub_clone_target_properties"
+		],
+		"files" : 
+		[
+			"test/CMakeLists.txt",
+			"cmake/CubBuildTargetList.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 174,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 104,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 105,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 181,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 107,
+				"parent" : 1
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 106,
+				"parent" : 1
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 103,
+				"parent" : 6
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 60,
+				"parent" : 7
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_53,code=sm_53 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_61,code=sm_61 -gencode arch=compute_62,code=sm_62 -gencode arch=compute_70,code=sm_70 -gencode arch=compute_72,code=sm_72 -gencode arch=compute_75,code=sm_75 -gencode arch=compute_80,code=sm_80 -gencode arch=compute_86,code=sm_86 -gencode arch=compute_86,code=compute_86 -g -std=c++14"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcompiler=-Werror"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcompiler=-Wall"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcompiler=-Wextra"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcompiler=-Winit-self"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcompiler=-Woverloaded-virtual"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcompiler=-Wcast-qual"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcompiler=-Wpointer-arith"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcompiler=-Wvla"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcompiler=-Wno-gnu-zero-variadic-macro-arguments"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcompiler=-Wno-unused-function"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcompiler=-Wno-noexcept-type"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcudafe=--display_error_number"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Xcudafe=--promote_warnings"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wno-deprecated-gpu-targets"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 4,
+					"define" : "TEST_VALUE_TYPES=4"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 5,
+					"path" : "/home/wm/open_source_code/OpSparse-main/spECK/cub-1.17.2/test"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/wm/open_source_code/OpSparse-main/spECK/cub-1.17.2"
+				}
+			],
+			"language" : "CUDA",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					8
+				],
+				"standard" : "14"
+			},
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"id" : "cub.cpp14.test.block_scan.types_4::@36f028580bb02cc8272a",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_53,code=sm_53 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_61,code=sm_61 -gencode arch=compute_62,code=sm_62 -gencode arch=compute_70,code=sm_70 -gencode arch=compute_72,code=sm_72 -gencode arch=compute_75,code=sm_75 -gencode arch=compute_80,code=sm_80 -gencode arch=compute_86,code=sm_86 -gencode arch=compute_86,code=compute_86 -g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-lcudadevrt",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lcudart_static",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lrt",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CUDA"
+	},
+	"name" : "cub.cpp14.test.block_scan.types_4",
+	"nameOnDisk" : "cub.cpp14.test.block_scan.types_4",
+	"paths" : 
+	{
+		"build" : "test",
+		"source" : "test"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "test/test_block_scan.cu",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}
