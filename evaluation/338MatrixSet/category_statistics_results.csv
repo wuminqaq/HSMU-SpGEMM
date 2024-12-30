@@ -1,0 +1,43 @@
+Matrix Category,Matrix Count
+structural problem,81
+frequency-domain circuit simulation problem,1
+materials problem,9
+duplicate materials problem,2
+circuit simulation problem,9
+computational fluid dynamics problem,18
+optimization problem,27
+electromagnetics problem,10
+duplicate electromagnetics problem,1
+theoretical/quantum chemistry problem sequence,1
+subsequent theoretical/quantum chemistry problem,9
+directed weighted random graph,1
+2D/3D problem,15
+directed weighted graph,3
+structural problem sequence,1
+subsequent structural problem,8
+optimization problem sequence,5
+semiconductor device problem,2
+subsequent semiconductor device problem,5
+semiconductor device problem sequence,1
+directed graph,12
+circuit simulation problem sequence,1
+subsequent circuit simulation problem,2
+duplicate model reduction problem,3
+subsequent optimization problem,5
+chemical process simulation problem,9
+computer graphics/vision problem,1
+theoretical/quantum chemistry problem,22
+thermal problem,2
+model reduction problem,10
+undirected weighted graph sequence,1
+power network problem sequence,2
+acoustics problem,1
+power network problem,12
+undirected weighted graph,1
+weighted undirected graph,1
+weighted directed graph,1
+undirected graph,20
+undirected random graph,4
+random unweighted graph,5
+optimal control problem,13
+computational chemistry problem,1

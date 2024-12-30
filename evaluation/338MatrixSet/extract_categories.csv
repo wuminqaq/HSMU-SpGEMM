@@ -1,0 +1,339 @@
+Matrix Name,Matrix Kind
+bcsstk30,structural problem
+pre2,frequency-domain circuit simulation problem
+bcsstk35,structural problem
+bcsstk36,structural problem
+crystk02,materials problem
+crystk03,materials problem
+ct20stif,structural problem
+msc10848,structural problem
+msc23052,structural problem
+pcrystk02,duplicate materials problem
+pcrystk03,duplicate materials problem
+pct20stif,structural problem
+pwtk,structural problem
+circuit_4,circuit simulation problem
+rma10,computational fluid dynamics problem
+ex11,computational fluid dynamics problem
+gupta1,optimization problem
+gupta2,optimization problem
+gupta3,optimization problem
+li,electromagnetics problem
+pli,duplicate electromagnetics problem
+nasasrb,structural problem
+nemeth01,theoretical/quantum chemistry problem sequence
+nemeth18,subsequent theoretical/quantum chemistry problem
+nemeth19,subsequent theoretical/quantum chemistry problem
+nemeth20,subsequent theoretical/quantum chemistry problem
+nemeth21,subsequent theoretical/quantum chemistry problem
+nemeth22,subsequent theoretical/quantum chemistry problem
+nemeth23,subsequent theoretical/quantum chemistry problem
+nemeth24,subsequent theoretical/quantum chemistry problem
+nemeth25,subsequent theoretical/quantum chemistry problem
+nemeth26,subsequent theoretical/quantum chemistry problem
+xenon2,materials problem
+3dtube,computational fluid dynamics problem
+cfd2,computational fluid dynamics problem
+gearbox,structural problem
+appu,directed weighted random graph
+bbmat,computational fluid dynamics problem
+olafu,structural problem
+raefsky3,computational fluid dynamics problem
+raefsky4,structural problem
+av41092,2D/3D problem
+bcsstk39,structural problem
+pkustk01,structural problem
+pkustk02,structural problem
+pkustk03,structural problem
+pkustk04,structural problem
+pkustk05,structural problem
+pkustk06,structural problem
+pkustk07,structural problem
+pkustk08,structural problem
+pkustk09,structural problem
+pkustk10,structural problem
+pkustk11,structural problem
+pkustk12,structural problem
+pkustk13,structural problem
+pkustk14,structural problem
+kim2,2D/3D problem
+torso1,2D/3D problem
+torso3,2D/3D problem
+cage13,directed weighted graph
+cage14,directed weighted graph
+cage15,directed weighted graph
+sinc18,materials problem
+ns3Da,computational fluid dynamics problem
+poisson3Db,computational fluid dynamics problem
+sme3Da,structural problem
+sme3Db,structural problem
+sme3Dc,structural problem
+nd3k,2D/3D problem
+nd6k,2D/3D problem
+nd12k,2D/3D problem
+nd24k,2D/3D problem
+af_shell1,structural problem sequence
+af_shell2,subsequent structural problem
+af_shell3,subsequent structural problem
+af_shell4,subsequent structural problem
+af_shell5,subsequent structural problem
+af_shell6,subsequent structural problem
+af_shell7,subsequent structural problem
+af_shell8,subsequent structural problem
+af_shell9,subsequent structural problem
+c-62,optimization problem sequence
+c-64,optimization problem sequence
+c-66,optimization problem sequence
+c-67,optimization problem sequence
+c-73,optimization problem sequence
+ohne2,semiconductor device problem
+para-10,subsequent semiconductor device problem
+para-4,semiconductor device problem
+para-5,semiconductor device problem sequence
+para-6,subsequent semiconductor device problem
+para-7,subsequent semiconductor device problem
+para-8,subsequent semiconductor device problem
+para-9,subsequent semiconductor device problem
+Stanford_Berkeley,directed graph
+mult_dcop_01,circuit simulation problem sequence
+mult_dcop_02,subsequent circuit simulation problem
+mult_dcop_03,subsequent circuit simulation problem
+gyro_k,duplicate model reduction problem
+t3dh_a,duplicate model reduction problem
+t3dh_e,duplicate model reduction problem
+bmw3_2,structural problem
+c-58,optimization problem
+c-62ghs,subsequent optimization problem
+c-71,optimization problem
+exdata_1,optimization problem
+audikw_1,structural problem
+bmw7st_1,structural problem
+bmwcra_1,structural problem
+crankseg_1,structural problem
+crankseg_2,structural problem
+crplat2,structural problem
+fcondp2,structural problem
+fullb,structural problem
+halfb,structural problem
+hood,structural problem
+inline_1,structural problem
+ldoor,structural problem
+m_t1,structural problem
+oilpan,structural problem
+opt1,structural problem
+ramage02,computational fluid dynamics problem
+s3dkq4m2,structural problem
+s3dkt3m2,structural problem
+ship_001,structural problem
+ship_003,structural problem
+shipsec1,structural problem
+shipsec5,structural problem
+shipsec8,structural problem
+srb1,structural problem
+thread,structural problem
+trdheim,structural problem
+troll,structural problem
+tsyl201,structural problem
+vanbody,structural problem
+x104,structural problem
+a0nsdsil,optimization problem
+a2nnsnsl,optimization problem
+a5esindl,optimization problem
+bloweya,materials problem
+brainpc2,optimization problem
+sparsine,structural problem
+std1_Jac2,chemical process simulation problem
+std1_Jac3_db,chemical process simulation problem
+std1_Jac3,chemical process simulation problem
+Zd_Jac2_db,chemical process simulation problem
+Zd_Jac2,chemical process simulation problem
+Zd_Jac3_db,chemical process simulation problem
+Zd_Jac3,chemical process simulation problem
+Zd_Jac6_db,chemical process simulation problem
+Zd_Jac6,chemical process simulation problem
+rajat16,circuit simulation problem
+rajat17,circuit simulation problem
+rajat18,circuit simulation problem
+bundle1,computer graphics/vision problem
+CO,theoretical/quantum chemistry problem
+Ga10As10H30,theoretical/quantum chemistry problem
+Ga19As19H42,theoretical/quantum chemistry problem
+Ga3As3H12,theoretical/quantum chemistry problem
+Ga41As41H72,theoretical/quantum chemistry problem
+GaAsH6,theoretical/quantum chemistry problem
+Ge87H76,theoretical/quantum chemistry problem
+Ge99H100,theoretical/quantum chemistry problem
+H2O,theoretical/quantum chemistry problem
+Si10H16,theoretical/quantum chemistry problem
+Si34H36,theoretical/quantum chemistry problem
+Si41Ge41H72,theoretical/quantum chemistry problem
+Si87H76,theoretical/quantum chemistry problem
+SiO2,theoretical/quantum chemistry problem
+SiO,theoretical/quantum chemistry problem
+rajat20,circuit simulation problem
+rajat25,circuit simulation problem
+rajat28,circuit simulation problem
+net100,optimization problem
+net125,optimization problem
+net150,optimization problem
+net50,optimization problem
+net75,optimization problem
+pattern1,optimization problem
+pf2177,optimization problem
+fp,electromagnetics problem
+rajat31,circuit simulation problem
+laminar_duct3D,computational fluid dynamics problem
+thermal2,thermal problem
+F1,structural problem
+bloweybl,materials problem
+bloweybq,materials problem
+filter3D,model reduction problem
+gyro,model reduction problem
+t3dh,model reduction problem
+windscreen,model reduction problem
+bone010,model reduction problem
+boneS01,model reduction problem
+boneS10,model reduction problem
+patents,directed graph
+Reuters911,undirected weighted graph sequence
+c-43,optimization problem
+c-45,optimization problem
+c-53,optimization problem
+c-57,optimization problem
+c-big,optimization problem
+af_0_k101,structural problem
+af_1_k101,structural problem
+af_2_k101,structural problem
+af_3_k101,structural problem
+af_4_k101,structural problem
+af_5_k101,structural problem
+af_shell10,structural problem
+c-64b,subsequent optimization problem
+c-66b,subsequent optimization problem
+c-67b,subsequent optimization problem
+c-73b,subsequent optimization problem
+conf5_4-8x8-05,theoretical/quantum chemistry problem
+conf5_4-8x8-10,theoretical/quantum chemistry problem
+conf5_4-8x8-15,theoretical/quantum chemistry problem
+conf5_4-8x8-20,theoretical/quantum chemistry problem
+conf6_0-8x8-20,theoretical/quantum chemistry problem
+conf6_0-8x8-30,theoretical/quantum chemistry problem
+conf6_0-8x8-80,theoretical/quantum chemistry problem
+invextr1_new,computational fluid dynamics problem
+mixtank_new,computational fluid dynamics problem
+msdoor,structural problem
+pf2177,optimization problem
+wb-edu,directed graph
+Dubcova3,2D/3D problem
+BenElechi1,2D/3D problem
+FEM_3D_thermal2,thermal problem
+3Dspectralwave,materials problem
+3Dspectralwave2,materials problem
+F2,structural problem
+kkt_power,optimization problem
+fem_filter,electromagnetics problem
+water_tank,computational fluid dynamics problem
+largebasis,optimization problem
+nlpkkt80,optimization problem
+nlpkkt120,optimization problem
+case39,power network problem sequence
+case9,power network problem sequence
+mono_500Hz,acoustics problem
+Freescale1,circuit simulation problem
+TSOPF_RS_b2383,power network problem
+TSOPF_FS_b300,power network problem
+TSOPF_FS_b300_c2,power network problem
+TSOPF_FS_b39_c7,power network problem
+TSOPF_FS_b9_c6,power network problem
+TSOPF_RS_b2052_c1,power network problem
+TSOPF_RS_b2383_c1,power network problem
+TSOPF_RS_b678_c2,power network problem
+fem_hifreq_circuit,electromagnetics problem
+atmosmodd,computational fluid dynamics problem
+atmosmodj,computational fluid dynamics problem
+atmosmodl,computational fluid dynamics problem
+atmosmodm,computational fluid dynamics problem
+mouse_gene,undirected weighted graph
+offshore,electromagnetics problem
+soc-Slashdot0811,directed graph
+soc-Slashdot0902,directed graph
+email-Enron,directed graph
+web-BerkStan,directed graph
+web-Google,directed graph
+web-NotreDame,directed graph
+gsm_106857,electromagnetics problem
+pdb1HYS,weighted undirected graph
+consph,2D/3D problem
+cant,2D/3D problem
+cop20k_A,2D/3D problem
+webbase-1M,weighted directed graph
+dielFilterV2clx,electromagnetics problem
+dielFilterV2real,electromagnetics problem
+dielFilterV3clx,electromagnetics problem
+dielFilterV3real,electromagnetics problem
+cnr-2000,directed graph
+in-2004,directed graph
+eu-2005,directed graph
+road_central,undirected graph
+road_usa,undirected graph
+delaunay_n21,undirected graph
+delaunay_n22,undirected graph
+delaunay_n23,undirected graph
+delaunay_n24,undirected graph
+hugebubbles-00000,undirected graph
+hugebubbles-00010,undirected graph
+hugebubbles-00020,undirected graph
+hugetrace-00010,undirected graph
+hugetrace-00020,undirected graph
+hugetric-00010,undirected graph
+hugetric-00020,undirected graph
+rgg_n_2_19_s0,undirected random graph
+rgg_n_2_20_s0,undirected random graph
+rgg_n_2_21_s0,undirected random graph
+rgg_n_2_22_s0,undirected random graph
+germany_osm,undirected graph
+auto,undirected graph
+m14b,undirected graph
+HTC_336_4438,power network problem
+HTC_336_9129,power network problem
+TSC_OPF_1047,power network problem
+TSC_OPF_300,power network problem
+Serena,structural problem
+Emilia_923,structural problem
+Fault_639,structural problem
+Flan_1565,structural problem
+Geo_1438,structural problem
+Hook_1498,structural problem
+StocF-1465,computational fluid dynamics problem
+Cube_Coup_dt0,structural problem
+Long_Coup_dt6,structural problem
+Chevron4,2D/3D problem
+CurlCurl_2,model reduction problem
+CurlCurl_3,model reduction problem
+CurlCurl_4,model reduction problem
+333SP,undirected graph
+AS365,undirected graph
+M6,undirected graph
+NLR,undirected graph
+vsp_bcsstk30_500sep_10in_1Kout,random unweighted graph
+vsp_befref_fxm_2_4_air02,random unweighted graph
+vsp_model1_crew1_cr42_south31,random unweighted graph
+vsp_msc10848_300sep_100in_1Kout,random unweighted graph
+vsp_south31_slptsk,random unweighted graph
+CoupCons3D,structural problem
+ML_Laplace,structural problem
+Bump_2911,2D/3D problem
+hangGlider_3,optimal control problem
+hangGlider_4,optimal control problem
+hangGlider_5,optimal control problem
+lowThrust_4,optimal control problem
+lowThrust_5,optimal control problem
+lowThrust_6,optimal control problem
+lowThrust_7,optimal control problem
+lowThrust_8,optimal control problem
+lowThrust_9,optimal control problem
+lowThrust_10,optimal control problem
+lowThrust_11,optimal control problem
+lowThrust_12,optimal control problem
+lowThrust_13,optimal control problem
+iChem_Jacobian,computational chemistry problem

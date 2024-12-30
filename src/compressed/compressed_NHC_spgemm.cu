@@ -219,7 +219,7 @@ void compressed_NHC_spgemm(int iter, double *time_array, compressed_bin *compres
         }
         FILE *fout;
 #if compute_total_time
-        fout = fopen("/home/wm/NHC_SPGEMM/data/NHC_4080S_result.csv", "a");
+        fout = fopen("../../data/NHC_4080S_result.csv", "a");
         if (fout == NULL)
             printf("Writing results fails1.\n");
         fprintf(fout, "%s,%i,%i,%lld,%d,%f,%f,%f,%lf\n",
@@ -228,7 +228,7 @@ void compressed_NHC_spgemm(int iter, double *time_array, compressed_bin *compres
 #endif
 #if compute_conversion_time_and_space
         time1 = (time1) / SPGEMM_TRI_NUM;
-        fout = fopen("/home/wm/NHC_SPGEMM/data/conversion_time_and_space_conversion.csv", "a");
+        fout = fopen("../../data/conversion_time_and_space_conversion.csv", "a");
         if (fout == NULL)
             printf("Writing results fails.\n");
         fprintf(fout, "%s,%i,%i,%lld,%d,%f,%lf,%lf,%lf,%lf\n",
@@ -237,7 +237,7 @@ void compressed_NHC_spgemm(int iter, double *time_array, compressed_bin *compres
 #endif
 #if compute_step_time
         float Generates_auxiliary_mask_structure = time_tileOR + time_Form_tileCptr;
-        fout = fopen("/home/wm/NHC_SPGEMM/data/new_compressed_step_runtime.csv", "a");
+        fout = fopen("../../data/new_compressed_step_runtime.csv", "a");
         if (fout == NULL)
             printf("Writing results fails.\n");
         fprintf(fout, "%s,%i,%i,%lld,%d,%f,%lf,%lf,%lf,%lf\n",
