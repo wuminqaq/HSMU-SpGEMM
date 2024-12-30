@@ -2,6 +2,7 @@
 A High Shared Memory Utilization Algorithm for Parallel Sparse General Matrix-Matrix Multiplication on GPUs
 ## Introduction
 Sparse general matrix-matrix multiplication (SpGEMM) is fundamental to numerous scientific applications. Traditional hash-based approaches fail to strike a trade-off between reducing hash collisions and efficiently utilizing fast shared memory. This significantly hinders the performance improvement of SpGEMM on GPUs. To tackle this issue, this paper proposes a parallel algorithm with high shared memory utilization, called HSMU-SpGEMM, for SpGEMM on modern GPUs. Our approach introduces a novel accumulator design to remedy the underuse of shared memory of traditional hash-based accumulators. Moreover, we devise distinct symbolic stages for the proposed accumulator.
+Note that we named our method 'NHC' earlier. All 'NHC' in the code refers to HSMU.
 
 ## Artifact Setup (incl. Inputs)
 Hardware: To better reproduce experiment results, we sug- gest an NVIDIA GPU with compute capability 8.6. To store input dataset, ensure that there is at least 200GB of free disk space.
