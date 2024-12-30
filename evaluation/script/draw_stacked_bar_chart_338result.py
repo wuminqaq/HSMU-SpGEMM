@@ -1,10 +1,13 @@
+#This script is used to draw Fig.17
+#The input of this script is 'new_compressed_step_runtime.csv', which will be generated after processing 338 matrices using HSMU;
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 plt.rcParams['font.size'] = 12
 fig_size=(8,4)
 #Replace with the actual file path
-file_path = '/home/wm/NHC_SPGEMM/data/new_compressed_step_runtime.csv'  
+file_path = '../../data/new_compressed_step_runtime.csv'  
 df = pd.read_csv(file_path, header=None) 
 
 name1=6

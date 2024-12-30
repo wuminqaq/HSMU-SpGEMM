@@ -1,3 +1,6 @@
+#This script is used to draw Fig .19 and 20;
+#The input of this script is 'conversion_time_and_space_conversion.csv', which will be generated after processing 338 matrices using HSMU;
+
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -5,8 +8,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 #Replace with the actual file path
-
-file_path5 = '/home/wm/open_source_code/spGEMM/NHC_SPGEMM/data/conversion_time_and_space_conversion.csv'
+file_path5 = '../../data/conversion_time_and_space_conversion.csv'
 df = pd.read_csv(file_path5, header=None)
 selected_columns = df.iloc[:, [0, -2, -1]]
 selected_columns.to_csv("NHC_space_cost.csv", index=False, header=None)

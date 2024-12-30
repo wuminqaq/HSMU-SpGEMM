@@ -1,3 +1,6 @@
+#This script is used to draw Fig.6
+#The input of this script is 'test_one_threshold_python_result.txt' which is generated from script test_threshold_matrix.sh
+
 import re
 import matplotlib.pyplot as plt
 import pandas as pd

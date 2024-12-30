@@ -1,3 +1,9 @@
+#This script is used to analyze the performance differences between HSMU and the other four libraries;
+#The input of this script is the performance data of the five libraries (five csv files, for HSMU it is NHC_4080S_result.csv)
+#The NHC_4080S_result.csv is generated after processing 338 matrices with HSMU;
+#The other four csv files are generated after propcessing 338 matrices with their respective four libraries;
+#For convenience, we put the performance data of the other four libraries on 4080S in the 'data' folder for reference;
+#The output of this script is max and min speed up of HSMU relative to the other four libraries, the geometric mean performance of HSMU, and date in Table 4;
 import pandas as pd
 import numpy as np
 with open('./matrix338_list.txt', 'r') as file:
@@ -7,11 +13,11 @@ df_name = pd.DataFrame({'matrix': lines})
 df_name.to_csv('output.csv', index=False)
 
 #  Replace with the actual file path
-file_path0 = '/home/wm/NHC_SPGEMM/data/NHC_4080S_result.csv'
-file_path1 = '/home/wm/open_source_code/spGEMM/nsparse-master/cuda-c/data/Nsparse_4080s_result.csv'
-file_path2 = '/home/wm/open_source_code/spGEMM/OpSparse-main/spECK/data/spECK_4080s_result.csv'
-file_path3 = '/home/wm/open_source_code/spGEMM/OpSparse-main/OpSparse/data/OpSparse_result4080s.csv'
-file_path4 = '/home/wm/open_source_code/spGEMM/cusparse/data/cusparse_4080S_result.csv'
+file_path0 = '../../data/NHC_4080S_result.csv'
+file_path1 = '../../data/Nsparse_4080s_result.csv'
+file_path2 = '../../data/spECK_4080s_result.csv'
+file_path3 = '../../data/OpSparse_result4080s.csv'
+file_path4 = '../../data/cusparse_4080S_result.csv'
 
 df0 = pd.read_csv(file_path0, header=None)
 df1 = pd.read_csv(file_path1, header=None)

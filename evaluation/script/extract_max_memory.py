@@ -1,3 +1,5 @@
+#This script is used to extract the max memory
+#The input of this script is 'gpu_memory_usage.txt', which is generated from 'test_peak_memory.sh'
 with open('gpu_memory_usage.txt', 'r') as file:
     lines = file.readlines()
 
