@@ -16,7 +16,8 @@ if [ $? -eq 0 ];then
             echo "Critical_bin_id is $Critical_bin_id, Cnnz_ctile_rate_Threshold is $Cnnz_ctile_rate_Threshold ----------------------" >> $Source
             echo “Critical_bin_id is $Critical_bin_id, "Cnnz_ctile_rate_Threshold is $Cnnz_ctile_rate_Threshold-----------------------" >> $Source1
             sed -i "s/^#define Cnnz_ctile_rate_Threshold [0-9]*/#define Cnnz_ctile_rate_Threshold ${Cnnz_ctile_rate_Threshold}/" NHC_spgemm.h
-            nvcc  -arch=compute_86 -code=sm_86 -O3 -Xcompiler -lrt -lcusparse -I /usr/local/cuda-11.4/include/cub test.cu -o test
+            #nvcc  -arch=compute_86 -code=sm_86 -O3 -Xcompiler -lrt -lcusparse -I /usr/local/cuda-11.4/include/cub test.cu -o test
+            make
             for filename in $filenames; do
                 ./test ../338Matrixset/$filename.mtx >> $Source
             done
