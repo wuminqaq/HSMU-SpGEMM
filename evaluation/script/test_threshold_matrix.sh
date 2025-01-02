@@ -12,7 +12,7 @@ if [ $? -eq 0 ];then
         sed -i "s/#define Critical_bin_id .*/#define Critical_bin_id ${Critical_bin_id}/" NHC_spgemm.h
         for Cnnz_ctile_rate_Threshold in "${Cnnz_ctile_rate_Threshold_list[@]}"; do
             echo "Critical_bin_id is $Critical_bin_id, Cnnz_ctile_rate_Threshold is $Cnnz_ctile_rate_Threshold ----------------------" >> merged_file.csv
-            echo "" > ./data/NHC_4080S_result.csv
+            echo "" > ../../data/NHC_4080S_result.csv
             echo "Critical_bin_id is $Critical_bin_id, Cnnz_ctile_rate_Threshold is $Cnnz_ctile_rate_Threshold ----------------------" >> $Source
             echo “Critical_bin_id is $Critical_bin_id, "Cnnz_ctile_rate_Threshold is $Cnnz_ctile_rate_Threshold-----------------------" >> $Source1
             sed -i "s/^#define Cnnz_ctile_rate_Threshold [0-9]*/#define Cnnz_ctile_rate_Threshold ${Cnnz_ctile_rate_Threshold}/" NHC_spgemm.h
