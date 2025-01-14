@@ -65,9 +65,16 @@ $bash additional_evaluation.sh
 This script tests the time proportion of each stage of HSMU-SpGEMM, as well as the time and space overhead of the new format, and finally generates Figures 13, 14, and 15.
 
 ## Artifact Analysis (incl. Outputs)
-For each matrix tested, the output information is as follows: lines 1-3 provide basic information about the tested matrix, including its name, number of rows, number of columns, and the number of non-zero elements.
+For each matrix tested, the output information is as follows: 
+
+lines 1-3 provide basic information about the tested matrix, including its name, number of rows, number of columns, and the number of non-zero elements.
+
 line 4 outputs the loading time of the matrix file (in seconds). line 5 outputs the format conversion time (in milliseconds) (corresponds to Figure 15).
+
 line 6 outputs the space overhead of the new format (corresponds to Figure 14).
+
 line 7-11 present the time taken by each stage of HSMU- SpGEMM (in milliseconds) (corresponds to Figure 13).
+
 line 12-14 provide information about matrix C, including the number of intermediate products, the number of non-zero elements in C, and the compression ratio.
+
 line 15-16 output the running time and GFLOPS.
