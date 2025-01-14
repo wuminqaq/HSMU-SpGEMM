@@ -15,32 +15,53 @@ Then, run HSMU-SpGEMM with the following command: $ ./test <path/to/matrix set>
 
 ## Artifact Execution
 In the directory <HSMU_dir>/evaluation/script, there are scripts to reproduce the paper data.
+
 Run the command:
 
-$bash simple run test.sh
+$bash simple_run_test.sh
 
 This script uses the matrix ”cant” as a test case to prove that the artifact is available and correct.
+
 Run the command:
 
-$bash test threshold matrix.sh
+$bash test_threshold_matrix.sh
 
 This script executes the experiment corresponding to Figure 6 and generates Figure 6. (180 minutes or more)
+
 Run the command:
-$bash test four extremely large matrices.sh
+
+$bash test four_extremely_large_matrices.sh
+
 This script performs the experiment corresponding to Figure 7 and generates the data corresponding to HSMU-SpGEMM. 
+
 Run the command:
+
 $bash test338matrices.sh
+
 This script tests the 338 matrices tested in the paper and generates the data of HSMU-SpGEMM in Tables 3, 4, and Figure 9. (20 minutes or more)
+
 Run the command:
+
 $bash test18matrices.sh
+
 This script tests the experiment corresponding to Figure 10 and obtains the corresponding results of HSMU-SpGEMM. (2 minutes)
+
 Run the command:
-$bash test peak memory.sh
-This script tests the peak memory of 18 representative matrices of HSMU-SpGEMM, corresponding to Figure 11. Run the command:
+
+$bash test_peak_memory.sh
+
+This script tests the peak memory of 18 representative matrices of HSMU-SpGEMM, corresponding to Figure 11. 
+
+Run the command:
+
 $bash testAATmatrices.sh
+
 This script reproduces the data for HSMU-SpGEMM in Figure 12.
+
 Run the command:
-$bash additional evaluation.sh
+
+$bash additional_evaluation.sh
+
 This script tests the time proportion of each stage of HSMU-SpGEMM, as well as the time and space overhead of the new format, and finally generates Figures 13, 14, and 15.
 
 ## Artifact Analysis (incl. Outputs)
