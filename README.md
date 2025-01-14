@@ -15,10 +15,10 @@ Then, run HSMU-SpGEMM with the following command: $ ./test <path/to/matrix set>
 
 ## Artifact Execution
 In the directory <HSMU_dir>/evaluation/script, there are scripts to reproduce the paper data.
-Run the command:
+Run the command:\\
 $bash simple run test.sh
 This script uses the matrix ”cant” as a test case to prove that the artifact is available and correct.
-Run the command:
+Run the command:\\
 $bash test threshold matrix.sh
 This script executes the experiment corresponding to Figure 6 and generates Figure 6. (180 minutes or more)
 Run the command:
