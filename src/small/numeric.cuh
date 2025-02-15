@@ -251,6 +251,27 @@ __device__ __forceinline__ int Binary_search_for_hash_loction(const int *__restr
     return -1;
 }
 
+template<int MAX_ITERATIONS>
+__device__ __forceinline__ int Binary_search_for_hash_loction(const int *__restrict__ shared_col, int left, int right, int bcol) {
+    int found = -1;
+    #pragma unroll
+    for (int i = 0; i < MAX_ITERATIONS; ++i) {
+        bool active = (left <= right);
+        if (!active) continue;
+
+        int mid = left + ((right - left) >> 1);
+        int val = shared_col[mid];
+        bool is_eq = (val == bcol);
+        bool is_less = (val < bcol);
+
+        found = is_eq ? mid : found;
+        left = is_less ? (mid + 1) : left;
+        right = (!is_less && !is_eq) ? (mid - 1) : right;
+    }
+    return found;
+}
+
+
 template <int hash_size>
 __global__ void old_kernel_compute_numeric(int *d_arow, int *d_aptr, int *d_acol, value_t *d_aval, int *d_brpt, int *d_bcol, value_t *d_bval, int *bin, int *d_ccol, int *d_cptr, value_t *d_cval, int num_of_partion)
 {
