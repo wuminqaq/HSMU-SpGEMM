@@ -2,7 +2,8 @@
 template <int threads_oneAnnz,
           int threads_onerow,
           int rows_oneblock,
-          int nnz_onerow>
+          int nnz_onerow,
+          int MAX_ITERATIONS>
 __global__ void k_formcval_shared_for_many_rows(
     const index_t *__restrict__ d_arpt, const index_t *__restrict__ d_acol,
     const value_t *__restrict__ d_aval,
@@ -58,7 +59,7 @@ __global__ void k_formcval_shared_for_many_rows(
         {
             bcol = d_bcol[k];
             bval = d_bval[k];
-            hash = Binary_search_for_hash_loction(col_table, hash, Cnnz_this_row - 1, bcol);
+            hash = Binary_search_for_hash_loction<MAX_ITERATIONS>(col_table, hash, Cnnz_this_row - 1, bcol);
             atomicAdd(num_table + hash, aval * bval);
         }
     }
@@ -69,6 +70,7 @@ __global__ void k_formcval_shared_for_many_rows(
     }
 }
 
+template <int MAX_ITERATIONS>
 __global__ void k_formcval_shared_for_one_large_row(
     const index_t *__restrict__ d_arpt, const index_t *__restrict__ d_acol,
     const value_t *__restrict__ d_aval,
@@ -116,7 +118,7 @@ __global__ void k_formcval_shared_for_one_large_row(
         {
             bcol = d_bcol[k];
             bval = d_bval[k];
-            hash = Binary_search_for_hash_loction(shared_col, hash, Cnnz_this_row - 1, bcol);
+            hash = Binary_search_for_hash_loction<MAX_ITERATIONS>(shared_col, hash, Cnnz_this_row - 1, bcol);
             atomicAdd(shared_cnum + hash, aval * bval);
         }
     }
@@ -199,7 +201,8 @@ __global__ void old_k_formcval_shared_for_many_rows(
 
 template <int threads_oneAnnz,
           int threads_onerow,
-          int nnz_onerow>
+          int nnz_onerow,
+          int MAX_ITERATIONS>
 __global__ void k_formcval_only_col_shared_for_one_row(
     const index_t *__restrict__ d_arpt, const index_t *__restrict__ d_acol,
     const value_t *__restrict__ d_aval,
@@ -244,66 +247,9 @@ __global__ void k_formcval_only_col_shared_for_one_row(
         {
             bcol = d_bcol[k];
             bval = d_bval[k];
-            hash = Binary_search_for_hash_loction(shared_col, 0, Cnnz_this_row - 1, bcol);
+            hash = Binary_search_for_hash_loction<MAX_ITERATIONS>(shared_col, 0, Cnnz_this_row - 1, bcol);
             atomicAdd(num_table + hash, aval * bval);
         }
-    }
-}
-
-__global__ void compressed_kernel_compute_numeric_Implementation(int *d_array_store_shift, int *d_arow, int *d_aptr, int *d_acol, value_t *d_aval,
-                                                                 int *d_brpt, int *d_bcol, value_t *d_bval, int *bin,
-                                                                 int *d_ccol, int *d_cptr, value_t *d_cval)
-{
-    int loc_par_id = blockIdx.x;
-    int shift = d_array_store_shift[loc_par_id];
-    int off_row_id = bin[loc_par_id];
-    int end_row_id = bin[loc_par_id + 1];
-    int start_Annz = d_aptr[off_row_id];
-    int start_Cnnz = d_cptr[off_row_id];
-    int end_Annz = d_aptr[end_row_id];
-    int end_Cnnz = d_cptr[end_row_id];
-
-    int j, k;
-    int tid = threadIdx.x & ((1 << shift) - 1);
-    int wid = threadIdx.x >> shift;
-    int wnum = blockDim.x >> shift;
-
-    extern __shared__ int shared_mem[];
-    // const int tsize = 4096;
-    index_t *shared_col = shared_mem;
-    value_t *shared_val = (value_t *)(shared_mem + 4096);
-    value_t aval, bval;
-
-    int size_c = end_Cnnz - start_Cnnz;
-    int arow, acol, bcol, hash, start, end;
-    // initial ccol and cval
-    for (j = threadIdx.x; j < size_c; j += blockDim.x)
-    {
-        shared_col[j] = d_ccol[start_Cnnz + j];
-        shared_val[j] = 0;
-    }
-    __syncthreads();
-
-    for (j = start_Annz + wid; j < end_Annz; j += wnum)
-    {
-        aval = d_aval[j];
-        acol = d_acol[j];
-        arow = d_arow[j];
-        start = d_cptr[arow] - start_Cnnz;
-        end = d_cptr[arow + 1] - start_Cnnz - 1;
-        for (k = d_brpt[acol] + tid; k < d_brpt[acol + 1]; k += (1 << shift))
-        {
-            bcol = d_bcol[k];
-            bval = d_bval[k];
-            hash = Binary_search_for_hash_loction(shared_col, start, end, bcol);
-            atomicAdd(shared_val + hash, aval * bval);
-        }
-    }
-    __syncthreads();
-    // write in globel memory
-    for (j = threadIdx.x; j < size_c; j += blockDim.x)
-    {
-        d_cval[start_Cnnz + j] = shared_val[j];
     }
 }
 
@@ -330,7 +276,7 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[8])
     {
         gs = (compressed_bin->bin_size[8] + 1) >> 1;
-        k_formcval_shared_for_many_rows<32, 512, 2, 2048><<<gs, bs, 49152, compressed_bin->streams[8]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+        k_formcval_shared_for_many_rows<32, 512, 2, 2048, 11><<<gs, bs, 49152, compressed_bin->streams[8]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
                                                                                                          compressed_bin->d_bins + compressed_bin->bin_offset[8], compressed_bin->bin_size[8],
                                                                                                          C->d_ptr, C->d_col, C->d_val);
 #if compute_share
@@ -354,7 +300,7 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[9])
     {
         gs = compressed_bin->bin_size[9];
-        k_formcval_shared_for_many_rows<32, 1024, 1, 4096><<<gs, bs, 49152, compressed_bin->streams[9]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+        k_formcval_shared_for_many_rows<32, 1024, 1, 4096, 12><<<gs, bs, 49152, compressed_bin->streams[9]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
                                                                                                           compressed_bin->d_bins + compressed_bin->bin_offset[9], compressed_bin->bin_size[9],
                                                                                                           C->d_ptr, C->d_col, C->d_val);
 #if compute_share
@@ -378,7 +324,7 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[7])
     {
         gs = (compressed_bin->bin_size[7] + 3) >> 2;
-        k_formcval_shared_for_many_rows<32, 256, 4, 1024><<<gs, bs, 49152, compressed_bin->streams[7]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+        k_formcval_shared_for_many_rows<32, 256, 4, 1024, 10><<<gs, bs, 49152, compressed_bin->streams[7]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
                                                                                                          compressed_bin->d_bins + compressed_bin->bin_offset[7], compressed_bin->bin_size[7],
                                                                                                          C->d_ptr, C->d_col, C->d_val);
 #if compute_share
@@ -508,8 +454,8 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[10])
     {
         gs = compressed_bin->bin_size[10];
-        cudaFuncSetAttribute(k_formcval_shared_for_one_large_row, cudaFuncAttributeMaxDynamicSharedMemorySize, 98304);
-        k_formcval_shared_for_one_large_row<<<gs, bs, 98304, compressed_bin->streams[10]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+        cudaFuncSetAttribute(k_formcval_shared_for_one_large_row<13>, cudaFuncAttributeMaxDynamicSharedMemorySize, 98304);
+        k_formcval_shared_for_one_large_row<13><<<gs, bs, 98304, compressed_bin->streams[10]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
                                                                                             compressed_bin->d_bins + compressed_bin->bin_offset[10],
                                                                                             C->d_ptr, C->d_col, C->d_val);
 #if compute_share
@@ -533,7 +479,7 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[11])
     {
         gs = compressed_bin->bin_size[11];
-        k_formcval_only_col_shared_for_one_row<32, 1024, 12288><<<gs, bs, 49152, compressed_bin->streams[11]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+        k_formcval_only_col_shared_for_one_row<32, 1024, 12288, 14><<<gs, bs, 49152, compressed_bin->streams[11]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
                                                                                                                 compressed_bin->d_bins + compressed_bin->bin_offset[11],
                                                                                                                 C->d_ptr, C->d_col, C->d_val);
 #if compute_share
@@ -557,8 +503,8 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[12])
     {
         gs = compressed_bin->bin_size[12];
-        cudaFuncSetAttribute(k_formcval_only_col_shared_for_one_row<32, 1024, 24576>, cudaFuncAttributeMaxDynamicSharedMemorySize, 98304);
-        k_formcval_only_col_shared_for_one_row<32, 1024, 24576><<<gs, bs, 98304, compressed_bin->streams[12]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+        cudaFuncSetAttribute(k_formcval_only_col_shared_for_one_row<32, 1024, 24576, 15>, cudaFuncAttributeMaxDynamicSharedMemorySize, 98304);
+        k_formcval_only_col_shared_for_one_row<32, 1024, 24576, 15><<<gs, bs, 98304, compressed_bin->streams[12]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
                                                                                                                 compressed_bin->d_bins + compressed_bin->bin_offset[12],
                                                                                                                 C->d_ptr, C->d_col, C->d_val);
 #if compute_share
@@ -582,7 +528,7 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[6])
     {
         gs = (compressed_bin->bin_size[6] + 7) >> 3;
-        k_formcval_shared_for_many_rows<32, 128, 8, 512><<<gs, bs, 49152, compressed_bin->streams[6]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+        k_formcval_shared_for_many_rows<32, 128, 8, 512, 9><<<gs, bs, 49152, compressed_bin->streams[6]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
                                                                                                         compressed_bin->d_bins + compressed_bin->bin_offset[6], compressed_bin->bin_size[6],
                                                                                                         C->d_ptr, C->d_col, C->d_val);
 #if compute_share
@@ -593,7 +539,7 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[5])
     {
         gs = (compressed_bin->bin_size[5] + 15) >> 4;
-        k_formcval_shared_for_many_rows<32, 64, 16, 256><<<gs, bs, 49152, compressed_bin->streams[5]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+        k_formcval_shared_for_many_rows<32, 64, 16, 256, 8><<<gs, bs, 49152, compressed_bin->streams[5]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
                                                                                                         compressed_bin->d_bins + compressed_bin->bin_offset[5], compressed_bin->bin_size[5],
                                                                                                         C->d_ptr, C->d_col, C->d_val);
 #if compute_share
@@ -604,7 +550,7 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[4])
     {
         gs = (compressed_bin->bin_size[4] + 31) >> 5;
-        k_formcval_shared_for_many_rows<16, 32, 32, 128><<<gs, bs, 49152, compressed_bin->streams[4]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+        k_formcval_shared_for_many_rows<16, 32, 32, 128, 7><<<gs, bs, 49152, compressed_bin->streams[4]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
                                                                                                         compressed_bin->d_bins + compressed_bin->bin_offset[4], compressed_bin->bin_size[4],
                                                                                                         C->d_ptr, C->d_col, C->d_val);
 #if compute_share
@@ -617,7 +563,7 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     {
         gs = (compressed_bin->bin_size[3] + 63) >> 6;
         k_formcval_shared_for_many_rows<8, 16, 64, 64><<<gs, bs, 49152, compressed_bin->streams[3]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
-                                                                                                      compressed_bin->d_bins + compressed_bin->bin_offset[3], compressed_bin->bin_size[3],
+                                                     , 6                                                 compressed_bin->d_bins + compressed_bin->bin_offset[3], compressed_bin->bin_size[3],
                                                                                                       C->d_ptr, C->d_col, C->d_val);
 #if compute_share
         practical_need += (unsigned long long)gs * 49152;
@@ -628,7 +574,7 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[2])
     {
         gs = (compressed_bin->bin_size[2] + 127) >> 7;
-        k_formcval_shared_for_many_rows<4, 8, 128, 32><<<gs, bs, 49152, compressed_bin->streams[2]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+        k_formcval_shared_for_many_rows<4, 8, 128, 32, 5><<<gs, bs, 49152, compressed_bin->streams[2]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
                                                                                                       compressed_bin->d_bins + compressed_bin->bin_offset[2], compressed_bin->bin_size[2],
                                                                                                       C->d_ptr, C->d_col, C->d_val);
 #if compute_share
@@ -640,7 +586,7 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[1])
     {
         gs = (compressed_bin->bin_size[1] + 255) >> 8;
-        k_formcval_shared_for_many_rows<2, 4, 256, 16><<<gs, bs, 49152, compressed_bin->streams[1]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+        k_formcval_shared_for_many_rows<2, 4, 256, 16, 4><<<gs, bs, 49152, compressed_bin->streams[1]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
                                                                                                       compressed_bin->d_bins + compressed_bin->bin_offset[1], compressed_bin->bin_size[1],
                                                                                                       C->d_ptr, C->d_col, C->d_val);
 #if compute_share
@@ -652,7 +598,7 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[0])
     {
         gs = (compressed_bin->bin_size[0] + 511) >> 9;
-        k_formcval_shared_for_many_rows<1, 2, 512, 8><<<gs, bs, 49152, compressed_bin->streams[0]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+        k_formcval_shared_for_many_rows<1, 2, 512, 8, 3><<<gs, bs, 49152, compressed_bin->streams[0]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
                                                                                                      compressed_bin->d_bins, compressed_bin->bin_size[0],
                                                                                                      C->d_ptr, C->d_col, C->d_val);
 #if compute_share
