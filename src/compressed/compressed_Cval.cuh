@@ -562,8 +562,8 @@ void h_form_cval_with_dense_accumulator(compressed_bin *compressed_bin, NHC_CSR 
     if (compressed_bin->bin_size[3])
     {
         gs = (compressed_bin->bin_size[3] + 63) >> 6;
-        k_formcval_shared_for_many_rows<8, 16, 64, 64><<<gs, bs, 49152, compressed_bin->streams[3]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
-                                                     , 6                                                 compressed_bin->d_bins + compressed_bin->bin_offset[3], compressed_bin->bin_size[3],
+        k_formcval_shared_for_many_rows<8, 16, 64, 64, 6><<<gs, bs, 49152, compressed_bin->streams[3]>>>(A->d_ptr, A->d_col, A->d_val, B->d_ptr, B->d_col, B->d_val,
+                                                                                                      compressed_bin->d_bins + compressed_bin->bin_offset[3], compressed_bin->bin_size[3],
                                                                                                       C->d_ptr, C->d_col, C->d_val);
 #if compute_share
         practical_need += (unsigned long long)gs * 49152;
