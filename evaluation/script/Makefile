@@ -8,3 +8,5 @@ TARGET := test
 
 $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) $^ -o $@
+clean:
+	rm -f $(TARGET)
