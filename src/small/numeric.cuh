@@ -234,27 +234,27 @@ __device__ __forceinline__ int Binary_search_for_hash_loction(const int *__restr
 {
     while (left <= right)
     {
+        // 计算中间位置
         int mid = left + ((right - left) >> 1);
-        if (shared_col[mid] == bcol)
+        int mid_value = shared_col[mid];  // 将 shared_col[mid] 存储为局部变量
+
+        // 减少分支判断的次数
+        if (mid_value == bcol)
         {
             return mid;
         }
-        else if (shared_col[mid] < bcol)
-        {
-            left = mid + 1;
-        }
-        else
-        {
-            right = mid - 1;
-        }
+
+        // 利用有序性质直接判断并修改边界
+        left = (mid_value < bcol) ? mid + 1 : left;
+        right = (mid_value > bcol) ? mid - 1 : right;
+
     }
     return -1;
 }
 
-template<int MAX_ITERATIONS>
-__device__ __forceinline__ int Binary_search_for_hash_loction(const int *__restrict__ shared_col, int left, int right, int bcol) {
+__device__ __forceinline__ int k_Binary_search_for_hash_loction(int MAX_ITERATIONS, const int *__restrict__ shared_col, int left, int right, int bcol) {
     int found = -1;
-    #pragma unroll
+    #pragma unroll 4
     for (int i = 0; i < MAX_ITERATIONS; ++i) {
         bool active = (left <= right);
         if (!active) continue;
@@ -271,6 +271,27 @@ __device__ __forceinline__ int Binary_search_for_hash_loction(const int *__restr
     return found;
 }
 
+// __device__ __forceinline__ int Dynamic_search(int log_size, const int *__restrict__ shared_col, int left, int right, int bcol) 
+// {
+//     switch(log_size) { // 预先特化所有可能情况
+//         case 1:  return k_Binary_search_for_hash_loction<1>(shared_col, left, right, bcol);
+//         case 2:  return k_Binary_search_for_hash_loction<2>(shared_col, left, right, bcol);
+//         case 3:  return k_Binary_search_for_hash_loction<3>(shared_col, left, right, bcol);
+//         case 4:  return k_Binary_search_for_hash_loction<4>(shared_col, left, right, bcol);
+//         case 5:  return k_Binary_search_for_hash_loction<5>(shared_col, left, right, bcol);
+//         case 6:  return k_Binary_search_for_hash_loction<6>(shared_col, left, right, bcol);
+//         case 7:  return k_Binary_search_for_hash_loction<7>(shared_col, left, right, bcol);
+//         case 8:  return k_Binary_search_for_hash_loction<8>(shared_col, left, right, bcol);
+//         case 9:  return k_Binary_search_for_hash_loction<9>(shared_col, left, right, bcol);
+//         case 10:  return k_Binary_search_for_hash_loction<10>(shared_col, left, right, bcol);
+//         case 11:  return k_Binary_search_for_hash_loction<11>(shared_col, left, right, bcol);
+//         case 12:  return k_Binary_search_for_hash_loction<12>(shared_col, left, right, bcol);
+//         // case 13:  return k_Binary_search_for_hash_loction<13>(shared_col, left, right, bcol);
+//         // case 14:  return k_Binary_search_for_hash_loction<14>(shared_col, left, right, bcol);
+//         // case 15:  return k_Binary_search_for_hash_loction<15>(shared_col, left, right, bcol);
+//         default: return -1;
+//     }
+// }
 
 template <int hash_size>
 __global__ void old_kernel_compute_numeric(int *d_arow, int *d_aptr, int *d_acol, value_t *d_aval, int *d_brpt, int *d_bcol, value_t *d_bval, int *bin, int *d_ccol, int *d_cptr, value_t *d_cval, int num_of_partion)
