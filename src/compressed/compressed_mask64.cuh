@@ -6,7 +6,7 @@ int Partion_B_rely_tile64ptr(int *tile_ptr, int *bin, int nums_row, int *nums_ov
     int Upper_limit = Numtile_per_partion_for_initial_compress_mask;
     int i = 0;
     int before = 0;
-    int over_size_index = nums_row;
+    int over_size_index = nums_row - 1;
     while (i <= nums_row)
     {
         if (tile_ptr[i] > Upper_limit)
