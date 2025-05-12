@@ -58,7 +58,7 @@ void compressed_NHC_spgemm(int iter, double *time_array, compressed_bin *compres
     double csr_mem = (B->M + 1) * sizeof(index_t) + (B->nnz) * sizeof(index_t) + B->nnz * sizeof(value_t);
     csr_mem = csr_mem / (1024 * 1024);
     space_compressed_mask = (B->M + 1) * sizeof(index_t) + (B->tile_ptr[B->M]) * sizeof(index_t) + B->tile_ptr[B->M] * sizeof(DateTypeStoreCompressMask);
-    space_compressed_mask /= (8* 1024 * 1024);
+    space_compressed_mask /= (1024 * 1024);
     printf("space_compressed_mask = %.2lf MB\n",space_compressed_mask);
     startTimerVar(event_start, stream);
     compressed_Form_tileCptr(compressed_bin, A, B, C);
