@@ -78,3 +78,21 @@ line 7-11 present the time taken by each stage of HSMU- SpGEMM (in milliseconds)
 line 12-14 provide information about matrix C, including the number of intermediate products, the number of non-zero elements in C, and the compression ratio.
 
 line 15-16 output the running time and GFLOPS.
+
+## 📖 Citation
+
+If you find this repository useful in your research, please cite the following paper:
+
+**HSMU-SpGEMM: Achieving High Shared Memory Utilization for Parallel Sparse General Matrix-Matrix Multiplication on Modern GPUs**  
+*Wu, Min; Luo, Huizhang; Li, Fenfang; Zhang, Yiran; Tang, Zhuo; Li, Kenli; Zhang, Jeff; Liu, Chubo*  
+In *Proceedings of the 2025 IEEE International Symposium on High Performance Computer Architecture (HPCA)*, pp. 1452–1466, IEEE, 2025.
+
+```bibtex
+@inproceedings{wu2025hsmu,
+  title={HSMU-SpGEMM: Achieving High Shared Memory Utilization for Parallel Sparse General Matrix-Matrix Multiplication on Modern GPUs},
+  author={Wu, Min and Luo, Huizhang and Li, Fenfang and Zhang, Yiran and Tang, Zhuo and Li, Kenli and Zhang, Jeff and Liu, Chubo},
+  booktitle={2025 IEEE International Symposium on High Performance Computer Architecture (HPCA)},
+  pages={1452--1466},
+  year={2025},
+  organization={IEEE}
+}
