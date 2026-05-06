@@ -243,7 +243,7 @@ __device__ __forceinline__ void denseSpGEMMNumericImplementation(
 }
 
 template <class GlobalOffsetMap, uint32_t SHARED_HASH_SIZE, bool SUPPORT_GLOBAL, uint32_t THREADS>
-__global__ void denseSpGEMMNumeric(
+__global__ void __launch_bounds__(1024) denseSpGEMMNumeric(
 	const INDEX_TYPE nnzB, const INDEX_TYPE rowsB, const INDEX_TYPE colsB,
 	const INDEX_TYPE *__restrict__ rowOffsetsA, const INDEX_TYPE *__restrict__ rowOffsetsB, const INDEX_TYPE *__restrict__ colIdsA, const INDEX_TYPE *__restrict__ colIdsB,
 	const VALUE_TYPE *__restrict__ valuesA, const VALUE_TYPE *__restrict__ valuesB,
